@@ -62,19 +62,5 @@ module.exports = {
       });
   },
 
-  move: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { targetTodoId } = req.body;
-      const result = await Item.findOne({ where: { id: id } });
-
-      result.TodoId = targetTodoId;
-
-      await result.save();
-
-      res.status(200).json({ message: 'success', data: result });
-    } catch (err) {
-      next(err);
-    }
-  },
+  
 };
