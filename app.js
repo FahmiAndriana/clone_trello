@@ -5,9 +5,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const todoRouter = require('./app/api/todo/router');
-// const { version } = require('os');
+const itemsRouter = require('./app/api/items/router');
+const { version } = require('os');
 
-const URL = 'api/v1';
+const URL = '/api/v1';
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.get('/', function(req, res, next) {
   )
 })
 app.use(`${URL}`, todoRouter);
+app.use(`${URL}`, itemsRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
