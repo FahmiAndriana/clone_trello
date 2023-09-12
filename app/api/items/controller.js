@@ -62,5 +62,23 @@ module.exports = {
       });
   },
 
+  move : async (req, res, next) => {
+    try{
+        const {id} = req.params;
+        const {updateTodoId} = req.body;
+        Item.findOne({
+            where : {id: id}
+        }).then(item => {
+            item.update({TodoId : updateTodoId}).then(() => {
+                res.status(200).json({
+                    message: 'Success',
+                    data: item,})        
+            })
+        })
+    }catch(e){
+        next(e);
+    }
+  }
+
   
 };

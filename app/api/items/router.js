@@ -7,7 +7,7 @@ const {move, create, getOne, update, destroy} = require('../items/controller');
 router.post('/items', create);
 router.get('/items-findOne/:id', getOne);
 router.put('/items/:id', update);
-
+router.put('/items/:id/move', move);
 router.delete('/items/:id', destroy);
 
 module.exports = router;

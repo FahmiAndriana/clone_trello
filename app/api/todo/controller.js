@@ -18,7 +18,7 @@ module.exports = {
                 data: result
             })
         }catch(e){
-console.log(e);
+next(e);
         }
     },
 
@@ -44,7 +44,7 @@ console.log(e);
 
           });
           console.log(id);
-          conslo.log(result);
+          console.log(result);
           res.status(200).json({
             message: 'success',
             data: result,
